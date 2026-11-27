@@ -167,7 +167,14 @@ if st.session_state.usuario is None:
                     st.error("Usuário ou senha incorretos.")
         st.markdown('<p class="lgpd-note">🔒 Ambiente restrito em conformidade com a LGPD (Lei nº 13.709/2018).</p>', unsafe_allow_html=True)
     st.stop()
-    info = USUARIOS[st.session_state.usuario]
+    # --- VERIFICAÇÃO DE LOGIN ---
+# Garante que o painel abaixo só seja carregado se houver um usuário logado válido
+if not st.session_state.get("usuario") or st.session_state.usuario not in USUARIOS:
+    st.warning("⚠️ Faça login para acessar o sistema Monitora Ambiental.")
+    st.stop()
+
+# A partir daqui, o código roda sem recuo extra (nível 0 de indentação)
+info = USUARIOS[st.session_state.usuario]
 
 with st.sidebar:
     st.markdown(f"### 👤 {info['nome']}")
@@ -329,12 +336,3 @@ with aba5:
         pdf = FPDF()
         pdf.add_page()
         pdf.set_fill_color(244, 246, 244)
-        pdf.rect(0, 0, 210, 297, 'F')
-        pdf.set_fill_color(58, 90, 64)
-        pdf.rect(0, 0, 210, 28, 'F')
-        pdf.set_font("Arial", "B", 14)
-        pdf.set_text_color(255, 255, 255)
-        pdf.set_y(8)
-        pdf.cell(0, 10, "MONITORA AMBIENTAL - RELATORIO TECNICO", ln=True, align="C")
-        pdf.set_y(34)
-        pdf.set_font("Arial", "", 9)
