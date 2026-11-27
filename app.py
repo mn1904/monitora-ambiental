@@ -84,7 +84,7 @@ with st.sidebar:
     api_key = st.text_input("Cole sua Chave Google Gemini", type="password")
 
 st.title("🌿 Monitora Ambiental")
-col_c1, col_c2 = st.columns()
+col_c1, col_c2 = st.columns(2)
 cidade_busca = col_c1.text_input("📍 Cidade do Projeto (Clima em Tempo Real)", value="Umbaúba")
 
 dados_clima = buscar_clima(cidade_busca)
