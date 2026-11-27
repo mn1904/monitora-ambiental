@@ -447,7 +447,6 @@ with aba4:
         fig1.update_layout(paper_bgcolor="#FFFFFF", plot_bgcolor="#F9FBF9", font_color="#2B302C")
         c_g1.plotly_chart(fig1, use_container_width=True)
 
-        fig2 = px.line(
             fig2 = px.line(
             df_plot, x="Data", y="Valor", color="Parametro", markers=True,
             title="Evolução Histórica dos Parâmetros",
