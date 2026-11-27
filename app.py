@@ -541,4 +541,4 @@ with aba5:
             st.session_state.df = df_restaurado
             salvar_dados(df_restaurado)
             st.success("Backup restaurado com sucesso!")
-            st.rerun() 
+            st.rerun()
