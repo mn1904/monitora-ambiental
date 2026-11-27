@@ -208,8 +208,8 @@ with aba4:
         pdf.cell(0, 8, f"Data: {datetime.date.today()} | Emitido por: {info['nome']}", ln=True, align="C")
         pdf.ln(6)
         for _, r in df_rel.iterrows():
-            txt = f"{r['Data']} | {r['Cidade']} | {r['Categoria']} - {r['Parametro']}: {r['Valor']} (Lim: {r['Limite']}) [{r['Status']}]"
-          pdf.cell(0, 8, txt.encode('latin-1', 'replace').decode('latin-1'), ln=True)
+        txt = f"{r['Data']} | {r['Cidade']} | {r['Categoria']} - {r['Parametro']}: {r['Valor']} (Lim: {r['Limite']}) [{r['Status']}]"
+           pdf.cell(0, 8, txt.encode('latin-1', 'replace').decode('latin-1'), ln=True)
         return pdf.output(dest="S").encode("latin-1")
 
     if st.button("📄 Gerar Relatório PDF"):
